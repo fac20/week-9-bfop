@@ -1,0 +1,26 @@
+{
+  "name": "week-9-bfop",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">   <a href=\"https://github.com/fac20/week-7-BFOP\">Our API link.</a>   <a href=\"http://fun-facs-api.herokuapp.com\">Our heroku link.</a>",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.8.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac20/week-9-bfop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac20/week-9-bfop/issues"
+  },
+  "homepage": "https://github.com/fac20/week-9-bfop#readme"
+}
