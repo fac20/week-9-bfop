@@ -1,24 +1,35 @@
 import h from "./create-element.js";
 // import addFact from "./addFact.js";
 import fetchHelper from "./fetch-helper.js";
+import addFactForm from "./add-fact.js";
 
 const navBar = () => {
   const searchButton = h(
-    "button",{ 
+    "button",
+    {
       onclick: () => {
-        search(event.target.previousSibling.value)
-      } 
+        search(event.target.previousSibling.value);
+      },
     },
     "search"
   );
 
-  const randomButton = h("button", { onclick: randomFact() }, "random gossip");
-  const allFactsButton = h("button", { onclick: allFacts() }, "all the gossip");
+  const randomButton = h("button", { onclick: () => randomFact }, "random gossip");
+  const allFactsButton = h("button", { onclick: () => allFacts }, "all the gossip");
   const searchInput = h("input", { placeholder: "which bitch?" }, searchButton);
-  const logoutButton = h("button", { onclick: logout() }, "logout");
-  const addFactButton = h("button", {
-    // onclick: addFact()
-   }, "+");
+  const logoutButton = h("button", { onclick: () => logout }, "logout");
+  const addFactButton = h(
+    "button",
+    {
+      onclick: () => {
+        const addFactEl = addFactForm();
+        const body = document.querySelector("body");
+        body.append(addFactEl);
+        return body;
+      },
+    },
+    "+"
+  );
 
   return h(
     "nav",
@@ -33,9 +44,10 @@ const navBar = () => {
 };
 
 //----- Button functions -----
-const search = (name) => { //case sensitive - change in API if time permits
+const search = (name) => {
+  //case sensitive - change in API if time permits
   // const factsArray = fetchHelper(`facts/name/${name}`, {});
-  return fetchHelper(`facts/name/${name}`, {}).then(facts => console.log(facts));
+  return fetchHelper(`facts/name/${name}`, {}).then((facts) => console.log(facts));
   // Populate page with factsArray
 };
 
