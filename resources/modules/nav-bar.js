@@ -1,4 +1,5 @@
 import h from "./modules/create-element.js";
+import addFact from "./modules/addFact.js";
 
 const navBar = () => {
   const searchButton = h(
