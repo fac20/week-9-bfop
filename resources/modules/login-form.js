@@ -13,7 +13,7 @@ const loginForm = () => {
       onsubmit: (event) => {
         //need a lot more stuff!!!
         event.preventDefault();
-        const email = event.EventTarget.elements.email.value;
+        const email = event.target.elements.email.value;
         const password = event.target.elements.password.value;
         login(email, password).then((user) => {
           window.localStorage.setItem("fetch-is-not-a-thing", user.access_token);

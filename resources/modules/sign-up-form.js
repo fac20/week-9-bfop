@@ -1,13 +1,59 @@
-/*
-<form id="loginForm">
-  <label for="loginForm__username">Username:<span aria-hidden="true">*</span></label>
-  <input id="loginForm__username" required>
-  <label for="loginForm__password">Password:<span aria-hidden="true">*</span></label>
-  <div id="passwordRequirements" class="requirements">
-        Passwords must contain at least one number, and be at least 8 characters
-        long.
-      </div>
-  <input id="loginForm__password" type="password" name="loginForm__password" placeholder="Password" "aria-label": "Password" aria-describedby="passwordRequirements passwordError" pattern=".*\d.*" minlength="8" required>
-  <button type="submit">Log In</button>
-  </form>
-*/
+import h from "./create-element.js";
+import signup from "./api.js";
+
+function signUpForm() {
+  // label - username
+  const usernameLabelEl = h(
+    "label",
+    { for: "sign-up-form__username" },
+    "Username:",
+    h("span", { "aria-hidden": "true" }, "*")
+  );
+  // input - username
+  const usernameInputEl = h("input", { id: "sign-up-form__username", required: "required" });
+  // label - cohort
+  const cohortLabelEl = h(
+    "label",
+    { for: "sign-up-form__cohort" },
+    "Cohort:",
+    h("span", { "aria-hidden": "true" }, "*")
+  );
+  // input - cohort
+  const cohortInputEl = h("input", { id: "sign-up-form__cohort" });
+  // label - password
+  const passwordLabelEl = h(
+    "label",
+    { for: "sign-up-form__password" },
+    "Password:",
+    h("span", { "aria-hidden": "true" }, "*")
+  );
+  // input - password
+  const passwordInputEl = h("input", { id: "sign-up-form__password", required: "required" });
+  // button - sign up
+  const submitButtonEl = h("button", { type: "submit" }, "Sign up");
+
+  return h(
+    "form",
+    {
+      id: "signUpForm",
+      onsubmit: (event) => {
+        const username = event.target.elements["sign-up-form__username"].value;
+        const cohort = event.target.elements["sign-up-form__cohort"].value;
+        const password = event.target.elements["sign-up-form__password"].value;
+        signup(username, cohort, password).then((user) => {
+          window.localStorage.setItem("fetch-is-not-a-thing", user.access_token);
+          // Draw all facts page with appropriate function
+        });
+      },
+    },
+    usernameLabelEl,
+    usernameInputEl,
+    cohortLabelEl,
+    cohortInputEl,
+    passwordLabelEl,
+    passwordInputEl,
+    submitButtonEl
+  );
+}
+
+export default signUpForm;

@@ -1,24 +1,18 @@
-export const login = (username, password) => {
-    return fetchHelper("https://fun-facs-api.herokuapp.com/login", {
-      method: "POST",
-      body: JSON.stringify({ username, password }),
-      headers: { "content-type": "application/json" },
-    });
-}
+import fetchHelper from "./fetch-helper.js";
 
-const fetchHelper = async (url) => {
-    try {
-        const response = await fetch(`https://fun-facs-api.herokuapp.com/${url}`);
-        if (!response.ok) {
-            const error = new Error("HTTP Error");
-            error.status = response.status;
-            throw error;
-        }
-        else {
-            return response.json();
-        }
-    }
-    catch (error_1) {
-        console.error(error_1);
-    }
-  };
+export const login = (username, password) => {
+  return fetchHelper("login", {
+    method: "POST",
+    body: JSON.stringify({ username, password }),
+    headers: { "content-type": "application/json" },
+  });
+};
+
+//do we need to set cohort as an empty string
+export const signup = (username, cohort, password) => {
+  return fetchHelper("signup", {
+    method: "POST",
+    body: JSON.stringify({ username, cohort, password }),
+    headers: { "content-type": "application.json" },
+  });
+};
