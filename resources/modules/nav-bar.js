@@ -25,7 +25,6 @@ const navBar = () => {
         const addFactEl = addFactForm();
         const body = document.querySelector("body");
         body.append(addFactEl);
-        return body;
       },
     },
     "+"

@@ -39,6 +39,7 @@ const addFactForm = () => {
   );
 
   main.append(img, form);
+  return main;
 };
 
 export default addFactForm;
