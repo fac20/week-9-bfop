@@ -1,5 +1,5 @@
 import h from "./create-element.js";
-import signup from "./api.js";
+import { signup } from "./api.js";
 
 function signUpForm() {
   // label - username
@@ -37,10 +37,12 @@ function signUpForm() {
     {
       id: "signUpForm",
       onsubmit: (event) => {
+        event.preventDefault();
         const username = event.target.elements["sign-up-form__username"].value;
         const cohort = event.target.elements["sign-up-form__cohort"].value;
         const password = event.target.elements["sign-up-form__password"].value;
-        signup(username, cohort, password).then((user) => {
+        console.log(username, cohort, password);
+        signup(username, password, cohort).then((user) => {
           window.localStorage.setItem("fetch-is-not-a-thing", user.access_token);
           // Draw all facts page with appropriate function
         });

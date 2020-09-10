@@ -1,20 +1,27 @@
-import fetchHelper from "./fetch-helper.js"
+import fetchHelper from "./fetch-helper.js";
 
 const login = (username, password) => {
-    return fetchHelper("login", {
-      method: "POST",
-      body: JSON.stringify({ username, password }),
-      headers: { "content-type": "application/json" },
-    });
-}
-
-//do we need to set cohort as an empty string
-const signup = (username, cohort, password) => {
-  return fetchHelper("signup", {
+  return fetchHelper("login", {
     method: "POST",
-    body: JSON.stringify({ username, cohort, password }),
-    headers: { "content-type": "application.json" },
+    body: JSON.stringify({ username, password }),
+    headers: { "content-type": "application/json" },
   });
 };
 
-export {login, signup}
+//do we need to set cohort as an empty string
+const signup = (username, password, cohort) => {
+  return fetchHelper("signup", {
+    method: "POST",
+    body: JSON.stringify({ username, password, cohort }),
+    headers: { "content-type": "application/json" },
+  });
+};
+
+const addFact = (text_content, about_who, token) => {
+  return fetchHelper("facts", {
+    method: "POST",
+    body: JSON.stringify({ text_content, about_who }),
+    headers: { "content-type": "application/json", authorization: `Bearer ${token}` },
+  });
+};
+export { login, signup, addFact };
