@@ -1,22 +1,46 @@
 import h from "./create-element.js"
+import login from "./api.js"
+
+const loginFormEl = LoginForm();
+const welcomeEl = h("main", {});
+const logoutEl = LogoutButton();
 
 //username, password
 const loginForm = () => {
-    const form = h("form", {})
-    
-    
+    const form = h("form", {
+      id: "loginForm",
+      onsubmit: (event) => { //need a lot more stuff!!!
+        event.preventDefault();
+        const email = event.EventTarget.elements.email.value;
+        const password = event.target.elements.password.value;
+        login(email, password).then((user) => {
+          window.localStorage.setItem("fetch-is-not-a-thing", user.access_token);
+          const welcomeMessage = h("span", {}, `You go ${user.name} Coco`);
+          welcomeEl.append(welcomeMessage, logoutEl)
+          loginFormEl.replaceWith(welcomeEl)
+        });  
+      },
+    },
+    h("label", { for: "loginForm__username"},"Username:", h("span", { "aria-hidden": "true"}, "*")),
+    h("input", { for: "loginForm__username", required: "required"}),//if required doesnt work, try empty string for value
+    h("label", {for: "loginForm__password"}, "Password:", h("span", {"aria-hidden": "true"}, "*")),
+    h("input", {id: "loginForm__password", type: "password", name: "loginForm__password", placeholder: "Password", "aria-label": "Password", required: "" }),
+    h("button", {type: "submit"}, "Log In")
 
-}
+
+    )}
+
+
+<form id="loginForm">
+  <label for="loginForm__username">Username:<span aria-hidden="true">*</span></label>
+  <input id="loginForm__username" required>
+  <label for="loginForm__password">Password:<span aria-hidden="true">*</span></label>
+  <input id="loginForm__password" type="password" name="loginForm__password" placeholder="Password" "aria-label": "Password" required>
+  <button type="submit">Log In</button>
+  </form>
+
+
 /*
-export function login(email, password) {
-    return request("https://dogs-rest.herokuapp.com/v1/users/login/", {
-      method: "POST",
-      body: JSON.stringify({ email, password }),
-      headers: { "content-type": "application/json" },
-    });
-  }
-
-
   function LoginForm() {
     return h(
       "form",
