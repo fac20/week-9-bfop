@@ -33,7 +33,7 @@ const navBar = () => {
 };
 
 //----- Button functions -----
-const search = (name) => {
+const search = (name) => { //case sensitive - change in API if time permits
   // const factsArray = fetchHelper(`facts/name/${name}`, {});
   return fetchHelper(`facts/name/${name}`, {}).then(facts => console.log(facts));
   // Populate page with factsArray
