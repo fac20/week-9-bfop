@@ -1,7 +1,7 @@
 import h from "./create-element.js";
-// import addFact from "./addFact.js";
-import fetchHelper from "./fetch-helper.js";
 import addFactForm from "./add-fact.js";
+import fetchHelper from "./fetch-helper.js";
+import drawFacts from "./draw-facts-to-page.js";
 
 const navBar = () => {
   const searchButton = h(
@@ -25,7 +25,6 @@ const navBar = () => {
         const addFactEl = addFactForm();
         const body = document.querySelector("body");
         body.append(addFactEl);
-        return body;
       },
     },
     "+"
@@ -46,19 +45,22 @@ const navBar = () => {
 //----- Button functions -----
 const search = (name) => {
   //case sensitive - change in API if time permits
-  // const factsArray = fetchHelper(`facts/name/${name}`, {});
-  return fetchHelper(`facts/name/${name}`, {}).then((facts) => console.log(facts));
-  // Populate page with factsArray
+  fetchHelper(`facts/name/${name}`, {}).then((facts) => {
+    drawFacts(facts);
+  });
 };
 
 const randomFact = () => {
-  const fact = fetchHelper(`facts/random`, {});
+  fetchHelper(`facts/random`, {}).then((fact) => {
+    drawFacts([fact]);
+  });
   // Populate page with fact
 };
 
 const allFacts = () => {
-  const factsArray = fetchHelper("facts/", {});
-  // Populate page with factsArray
+  fetchHelper("facts/", {}).then((facts) => {
+    drawFacts(facts);
+  });
 };
 
 const logout = () => {

@@ -12,7 +12,6 @@ const loginForm = () => {
         event.preventDefault();
         const username = event.target.elements.loginForm__username.value;
         const password = event.target.elements.loginForm__password.value;
-        console.log(username, password)
         login(username, password).then((user) => {
           window.localStorage.setItem("fetch-is-not-a-thing", user.access_token);
           const welcomeMessage = h("span", {}, `You go ${user.name} Coco`);
