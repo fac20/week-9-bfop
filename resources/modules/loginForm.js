@@ -1,9 +1,9 @@
 import h from "./create-element.js"
 import login from "./api.js"
 
-const loginFormEl = LoginForm();
+const loginFormEl = loginForm();
 const welcomeEl = h("main", {});
-const logoutEl = LogoutButton();
+const logoutEl = logoutButton();
 
 //username, password
 const loginForm = () => {
@@ -25,12 +25,11 @@ const loginForm = () => {
     h("input", { for: "loginForm__username", required: "required"}),//if required doesnt work, try empty string for value
     h("label", {for: "loginForm__password"}, "Password:", h("span", {"aria-hidden": "true"}, "*")),
     h("input", {id: "loginForm__password", type: "password", name: "loginForm__password", placeholder: "Password", "aria-label": "Password", required: "" }),
-    h("button", {type: "submit"}, "Log In")
+    h("button", {type: "submit"}, "Log In") 
+  )
+}
 
-
-    )}
-
-
+/*
 <form id="loginForm">
   <label for="loginForm__username">Username:<span aria-hidden="true">*</span></label>
   <input id="loginForm__username" required>
@@ -38,7 +37,7 @@ const loginForm = () => {
   <input id="loginForm__password" type="password" name="loginForm__password" placeholder="Password" "aria-label": "Password" required>
   <button type="submit">Log In</button>
   </form>
-
+*/
 
 /*
   function LoginForm() {
@@ -96,9 +95,3 @@ const loginForm = () => {
   <button>Sign up</button>
 </form>
 */
-
-
-
-// const p = h("p", { className: "test" }, "Some text content", childNode);
-
-//login form button which calls to loginForm()
