@@ -2,6 +2,7 @@ import h from "./create-element.js";
 import checkMain from "./check-main.js";
 import checkToken from "./checkToken.js";
 import { addFact } from "./api.js";
+import drawFacts from "./draw-facts-to-page.js";
 
 const addFactForm = () => {
   const main = checkMain();
@@ -22,11 +23,12 @@ const addFactForm = () => {
       onsubmit: () => {
         event.preventDefault();
         const token = checkToken();
-        const text_content = event.target.elements["new-fact"].value;
+        const text_content = event.target.elements.new_fact.value;
         const about_who = event.target.elements.name.value;
 
         addFact(text_content, about_who, token).then((fact) => {
           drawFacts([fact]);
+        });
       },
     },
     nameLabel,
