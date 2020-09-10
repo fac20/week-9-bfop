@@ -1,12 +1,12 @@
 import h from "./create-element.js";
 import checkMain from "./check-main.js";
+import checkToken from "./checkToken.js";
 import { addFact } from "./api.js";
 
 const addFactForm = () => {
   const main = checkMain();
-  console.log("here");
   // Image
-  const img = h("img", { src: "./resources/images/burn-book.png" });
+  const img = h("img", { src: "./resources/images/burn-book.png", alt: "Burn book image" });
   // input with a label
   const nameLabel = h("label", { for: "name" }, "which bitch?");
   const name = h("input", { id: "name", class: "form__input--name", name: "name" });
@@ -19,10 +19,14 @@ const addFactForm = () => {
   const form = h(
     "form",
     {
-      onsubmit: (event) => {
-        const name = event.target.elements.name.value;
-        const factText = event.target.elements.new_fact.value;
-        addFact(name, factText);
+      onsubmit: () => {
+        event.preventDefault();
+        const token = checkToken();
+        const text_content = event.target.elements["new-fact"].value;
+        const about_who = event.target.elements.name.value;
+
+        addFact(text_content, about_who, token).then((fact) => {
+          drawFacts([fact]);
       },
     },
     nameLabel,

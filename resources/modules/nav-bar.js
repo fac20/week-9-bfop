@@ -2,6 +2,7 @@ import h from "./create-element.js";
 import addFactForm from "./add-fact.js";
 import fetchHelper from "./fetch-helper.js";
 import drawFacts from "./draw-facts-to-page.js";
+import addFactForm from "./add-fact.js";
 
 const navBar = () => {
   const searchButton = h(
@@ -21,7 +22,12 @@ const navBar = () => {
   const addFactButton = h(
     "button",
     {
-      onclick: () => addFactForm()
+      onclick: () => {
+        const addFactEl = addFactForm();
+        const body = document.querySelector("body");
+        body.append(addFactEl);
+        return body;
+      },
     },
     "+"
   );
