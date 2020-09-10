@@ -1,5 +1,5 @@
 import h from "./create-element.js";
-// import addFact from "./addFact.js";
+import addFactForm from "./add-fact.js";
 import fetchHelper from "./fetch-helper.js";
 import drawFacts from "./draw-facts-to-page.js";
 
@@ -21,7 +21,7 @@ const navBar = () => {
   const addFactButton = h(
     "button",
     {
-      // onclick: addFact()
+      onclick: () => addFactForm()
     },
     "+"
   );
