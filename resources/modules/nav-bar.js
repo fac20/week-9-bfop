@@ -14,10 +14,10 @@ const navBar = () => {
     "search"
   );
 
-  const randomButton = h("button", { onclick: () => randomFact }, "random gossip");
-  const allFactsButton = h("button", { onclick: () => allFacts }, "all the gossip");
+  const randomButton = h("button", { onclick: () => randomFact() }, "random gossip");
+  const allFactsButton = h("button", { onclick: () => allFacts() }, "all the gossip");
   const searchInput = h("input", { placeholder: "which bitch?" }, searchButton);
-  const logoutButton = h("button", { onclick: () => logout }, "logout");
+  const logoutButton = h("button", { onclick: () => logout() }, "logout");
   const addFactButton = h(
     "button",
     {
