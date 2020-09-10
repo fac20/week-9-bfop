@@ -2,7 +2,7 @@ import h from "./create-element.js";
 
 const addFact = () => {
   // Image
-  const img = h("img", { src: "images/burn-book.png" });
+  const img = h("img", { src: "./resources/images/burn-book.png" });
   // input with a label
   const nameLabel = h("label", { for: "name" }, "which bitch?");
   const name = h("input", { id: "name", class: "form__input--name", name: "name" });

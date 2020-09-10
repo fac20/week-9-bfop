@@ -13,7 +13,7 @@ const signup = (username, cohort, password) => {
   return fetchHelper("signup", {
     method: "POST",
     body: JSON.stringify({ username, cohort, password }),
-    headers: { "content-type": "application.json" },
+    headers: { "content-type": "application/json" },
   });
 };
 
