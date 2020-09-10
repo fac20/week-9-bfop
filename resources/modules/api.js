@@ -1,5 +1,4 @@
 import fetchHelper from "./fetch-helper.js";
-import checkToken from "./checkToken.js";
 
 const login = (username, password) => {
   return fetchHelper("login", {
@@ -10,20 +9,19 @@ const login = (username, password) => {
 };
 
 //do we need to set cohort as an empty string
-const signup = (username, cohort, password) => {
+const signup = (username, password, cohort) => {
   return fetchHelper("signup", {
     method: "POST",
-    body: JSON.stringify({ username, cohort, password }),
+    body: JSON.stringify({ username, password, cohort }),
     headers: { "content-type": "application/json" },
   });
 };
 
-const addFact = (fact, person) => {
-  fetchHelper("facts", {
+const addFact = (text_content, about_who, token) => {
+  return fetchHelper("facts", {
     method: "POST",
-    body: JSON.stringify({ text_content: fact, about_who: person }),
-    headers: { "content-type": "application/json", authorization: "Bearer " + checkToken() },
+    body: JSON.stringify({ text_content, about_who }),
+    headers: { "content-type": "application/json", authorization: `Bearer ${token}` },
   });
 };
-
 export { login, signup, addFact };

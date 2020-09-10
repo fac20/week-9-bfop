@@ -21,7 +21,12 @@ const navBar = () => {
   const addFactButton = h(
     "button",
     {
-      onclick: () => addFactForm()
+      onclick: () => {
+        const addFactEl = addFactForm();
+        const body = document.querySelector("body");
+        body.append(addFactEl);
+        return body;
+      },
     },
     "+"
   );
