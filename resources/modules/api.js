@@ -8,10 +8,13 @@ const login = (username, password) => {
     });
 }
 
-// export const getUser = (token) => {
-//     return fetchHelper("https://dogs-rest.herokuapp.com/v1/users/me/", {
-//       headers: { authorization: `Bearer ${token}` },
-//     });
-//   }
+//do we need to set cohort as an empty string
+const signup = (username, cohort, password) => {
+  return fetchHelper("signup", {
+    method: "POST",
+    body: JSON.stringify({ username, cohort, password }),
+    headers: { "content-type": "application.json" },
+  });
+};
 
-export { login };
+export {login, signup}

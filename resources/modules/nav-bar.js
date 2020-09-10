@@ -1,5 +1,5 @@
 import h from "./create-element.js";
-// import addFact from "./modules/addFact.js";
+// import addFact from "./addFact.js";
 import fetchHelper from "./fetch-helper.js";
 
 const navBar = () => {

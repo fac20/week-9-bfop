@@ -1,4 +1,4 @@
-import h from "./modules/create-element.js";
+import h from "./create-element.js";
 
 const addFact = () => {
   // Image

@@ -7,7 +7,8 @@ const loginForm = () => {
   const welcomeEl = h("main", {});
     const form = h("form", {
       id: "loginForm",
-      onsubmit: (event) => { //need a lot more stuff!!!
+      onsubmit: (event) => {
+        //need a lot more stuff!!!
         event.preventDefault();
         const username = event.target.elements.loginForm__username.value;
         const password = event.target.elements.loginForm__password.value;
