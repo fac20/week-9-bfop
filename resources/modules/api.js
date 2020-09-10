@@ -1,4 +1,6 @@
-export const login = (username, password) => {
+import fetchHelper from "./fetch-helper.js"
+
+const login = (username, password) => {
     return fetchHelper("login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
@@ -6,19 +8,10 @@ export const login = (username, password) => {
     });
 }
 
-const fetchHelper = async (url, options) => {
-    try {
-        const response = await fetch(`https://fun-facs-api.herokuapp.com/${url}`, options);
-        if (!response.ok) {
-            const error = new Error("HTTP Error");
-            error.status = response.status;
-            throw error;
-        }
-        else {
-            return response.json();
-        }
-    }
-    catch (error_1) {
-        console.error(error_1);
-    }
-  };
+// export const getUser = (token) => {
+//     return fetchHelper("https://dogs-rest.herokuapp.com/v1/users/me/", {
+//       headers: { authorization: `Bearer ${token}` },
+//     });
+//   }
+
+export { login };
