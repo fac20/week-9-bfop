@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-boc;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  max-width: 50ch;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5rem;
+}
+
+label,
+input,
+button {
+  font: inherit;
+  color: inherit;
+  display: block;
+  margin: 0.5rem;
+}
+
+nav {
+  display: fixed;
+  top: 0;
+}
+nav button,
+nav input {
+  display: inline;
+}
+
+article {
+  background-color: hsl(320 40% 85%);
+  padding: 0.2rem;
+  margin: 0.1rem;
+  border: solid 2px brown;
+}
+
+img {
+  height: 60vw;
+  max-height: 300px;
+}
