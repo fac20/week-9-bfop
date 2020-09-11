@@ -7,7 +7,7 @@ const navBar = () => {
   const searchButton = h(
     "button",
     {
-      onclick: () => {
+      onclick: (event) => {
         search(event.target.previousSibling.value);
       },
     },

@@ -20,7 +20,7 @@ const addFactForm = () => {
   const form = h(
     "form",
     {
-      onsubmit: () => {
+      onsubmit: (event) => {
         event.preventDefault();
         const token = checkToken();
         const text_content = event.target.elements.new_fact.value;
