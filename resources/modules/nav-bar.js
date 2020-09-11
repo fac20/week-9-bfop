@@ -57,7 +57,7 @@ const randomFact = () => {
   // Populate page with fact
 };
 
-const allFacts = () => {
+export const allFacts = () => {
   fetchHelper("facts/", {}).then((facts) => {
     drawFacts(facts);
   });

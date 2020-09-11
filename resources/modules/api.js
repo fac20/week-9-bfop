@@ -24,4 +24,12 @@ const addFact = (text_content, about_who, token) => {
     headers: { "content-type": "application/json", authorization: `Bearer ${token}` },
   });
 };
-export { login, signup, addFact };
+
+const deleteFactFromAPI = (id, token) => {
+  return fetchHelper(`facts/${id}`, {
+    method: "DELETE",
+    headers: { authorization: `Bearer ${token}` }
+  })
+}
+
+export { login, signup, addFact , deleteFactFromAPI };

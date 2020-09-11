@@ -5,6 +5,8 @@ const fetchHelper = (url, options) => {
         const error = new Error("HTTP Error");
         error.status = response.status;
         throw error;
+      } else if (response.status === 204) {
+        // console.log("DELETE MUAHAHAHA")
       } else {
         return response.json();
       }
