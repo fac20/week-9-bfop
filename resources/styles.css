@@ -1,6 +1,10 @@
 * {
   box-sizing: border-boc;
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: hsl(330, 100%, 95%);
+  font-family: "Inconsolata", monospace;
 }
 
 main {
@@ -8,6 +12,7 @@ main {
   margin-left: auto;
   margin-right: auto;
   padding: 1.5rem;
+  padding-top: 6rem;
 }
 
 label,
@@ -19,20 +24,56 @@ button {
   margin: 0.5rem;
 }
 
+button {
+  color: #fff;
+  background-color: purple;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: bold;
+}
+
 nav {
+  z-index: 1000;
   position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  background-color: hsl(320, 100%, 70%);
 }
 nav button,
 nav input {
   display: inline;
 }
 
+.article__buttons button {
+  display: inline;
+  font-size: 2;
+  position: absolute;
+}
+
+.article__buttons .article__button--delete {
+  right: 1rem;
+  bottom: 4rem;
+}
+.article__buttons .article__button--edit {
+  right: 3.5rem;
+  bottom: 4rem;
+}
+
 article {
-  background-color: hsl(320 40% 85%);
-  padding: 0.2rem;
-  margin: 0.1rem;
-  border: solid 2px brown;
+  background: linear-gradient(
+    90deg,
+    rgba(240, 186, 209, 1) 0%,
+    rgba(255, 147, 241, 0.9584245076586433) 52%
+  );
+  padding: 1rem;
+  margin: 1rem;
+  font-family: "Special Elite", cursive;
+  position: relative;
 }
 
 img {
