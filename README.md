@@ -3,16 +3,10 @@
   <a href="http://fun-facs-api.herokuapp.com">Our heroku link.</a>
 
   <h3 align="center">Fun FACs</h3>
-
+  <p align="center">
+  <img width="200" src="https://user-images.githubusercontent.com/26288170/92895830-c121df80-f413-11ea-9a1e-72739d877095.png"></p>
   <p align="center">
     Week 9 Single-Page Application project
-    <br />
-    <a href="https://github.com/fac20/week-9-bfop"><strong>Explore the docs »</strong></a>
-    <br />
-    ·
-    <a href="https://github.com/fac20/week-9-bfop/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/fac20/week-9-bfop/issues">Request Feature</a>
   </p>
 </p>
 
@@ -22,8 +16,6 @@
 * [Getting Started](#getting-started)
   * [Installation](#installation)
 * [Usage Instructions](#usage-instructions)
-  * []()
-  * []()
 * [Team](#team)
 * [Acknowledgements](#acknowledgements)
 
@@ -35,27 +27,27 @@ This is a project created as part of the [Founders and Coders](https://www.found
 
 ## User stories
 
-- **As a user, I want to**: see all the resources
-- **As a user, I want to**: sign up for an account
-- **As a user, I want to**: log in to my account
-- **As a user, I want to**: add my own resources
+- [x] **As a user, I want to**: see all the resources
+- [x] **As a user, I want to**: sign up for an account
+- [x] **As a user, I want to**: log in to my account
+- [x] **As a user, I want to**: add my own resources
 
 ### Stretch
 
-- **As a user, I want to**: update my own resources
-- **As a user, I want to**: delete my own resources
+- [ ] **As a user, I want to**: update my own resources
+- [ ] **As a user, I want to**: delete my own resources
 
 ### Acceptance Criteria
 
-- [ ] A single-page app (only one HTML file)
+- [x] A single-page app (only one HTML file)
 - [ ] Accessible signup/login forms
-- [ ] Token-based authentication (storing token in localStorage)
-- [ ] Form for adding new resources (only for logged in users)
+- [x] Token-based authentication (storing token in localStorage)
+- [x] Form for adding new resources (only for logged in users)
 - [ ] Works well across Chrome, Firefox and Safari/Edge browsers
 
 #### Stretch criteria
 
-- [ ] Buttons to delete existing resources (for logged in users)
+- [x] Buttons to delete existing resources (for logged in users)
 - [ ] Form for updating existing resources (for logged in users)
 - [ ] Easter Egg
 - [ ] Loading spinner
