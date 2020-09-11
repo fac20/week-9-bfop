@@ -53,6 +53,7 @@ function signUpForm() {
         signup(username, password, cohort).then((user) => {
           window.localStorage.setItem("fetch-is-not-a-thing", user.access_token);
           // Draw all facts page with appropriate function
+          location.reload();
         });
       },
     },

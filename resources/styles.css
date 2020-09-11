@@ -20,7 +20,7 @@ button {
 }
 
 nav {
-  display: fixed;
+  position: fixed;
   top: 0;
 }
 nav button,
