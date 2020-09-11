@@ -10,7 +10,11 @@ function signUpForm() {
     h("span", { "aria-hidden": "true" }, "*")
   );
   // input - username
-  const usernameInputEl = h("input", { id: "sign-up-form__username", required: "required" });
+  const usernameInputEl = h("input", {
+    id: "sign-up-form__username",
+    required: "required",
+    placeholder: "Username",
+  });
   // label - cohort
   const cohortLabelEl = h(
     "label",
@@ -19,7 +23,7 @@ function signUpForm() {
     h("span", { "aria-hidden": "true" }, "*")
   );
   // input - cohort
-  const cohortInputEl = h("input", { id: "sign-up-form__cohort" });
+  const cohortInputEl = h("input", { id: "sign-up-form__cohort", placeholder: "Cohort" });
   // label - password
   const passwordLabelEl = h(
     "label",
@@ -28,7 +32,11 @@ function signUpForm() {
     h("span", { "aria-hidden": "true" }, "*")
   );
   // input - password
-  const passwordInputEl = h("input", { id: "sign-up-form__password", required: "required" });
+  const passwordInputEl = h("input", {
+    id: "sign-up-form__password",
+    required: "required",
+    placeholder: "Password",
+  });
   // button - sign up
   const submitButtonEl = h("button", { type: "submit" }, "Sign up");
 
