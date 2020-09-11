@@ -25,12 +25,21 @@ button {
   cursor: pointer;
 }
 
+button, input {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 button {
   color: #fff;
   background-color: purple;
   border-radius: 0.5rem;
   border: none;
   font-weight: bold;
+}
+
+button:hover {
+  filter: brightness(1.25);
+  transform: translateY(2px);
 }
 
 nav {
@@ -80,17 +89,6 @@ article {
 img {
   height: 60vw;
   max-height: 300px;
-}
-
-
-
-@keyframes spin {
-  from{
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(360deg);
-  }
 }
 
 .book-image {
