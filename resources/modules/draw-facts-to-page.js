@@ -13,16 +13,24 @@ const drawFacts = (array) => {
     // edit button
     const button_edit = h(
       "button",
-      { "aria-label": "edit", onclick: () => editFact() },
+      { class: "article__button--edit", "aria-label": "edit", onclick: () => editFact() },
       h("span", { "aria-hidden": true }, "✎")
     );
     // delete button
     const button_delete = h(
       "button",
-      { "aria-label": "delete", onclick: () => deleteFact() },
+      { class: "article__button--delete", "aria-label": "delete", onclick: () => deleteFact() },
       h("span", { "aria-hidden": true }, "☠")
     );
-    factContainer.append(h("article", {}, name, factText, button_edit, button_delete));
+    factContainer.append(
+      h(
+        "article",
+        {},
+        name,
+        factText,
+        h("span", { class: "article__buttons" }, button_edit, button_delete)
+      )
+    );
   });
   main.append(factContainer);
 };
