@@ -12,22 +12,35 @@ const drawFacts = (array) => {
     // name
     const name = h("h3", {}, fact.about_who);
     // fact
-    const factText = h("p", { }, fact.text_content);
+    const factText = h("p", {}, fact.text_content);
     // edit button
     const button_edit = h(
       "button",
-      { "aria-label": "edit", onclick: () => editFact() },
+      { class: "article__button--edit", "aria-label": "edit", onclick: () => editFact() },
       h("span", { "aria-hidden": true }, "✎")
     );
     // delete button
     const button_delete = h(
       "button",
-      { "aria-label": "delete", id: `fact${fact.id}`, onclick: (event) => {
-        deleteFact(event.target.parentElement.id) 
-      }},
+      {
+        class: "article__button--delete",
+        "aria-label": "delete",
+        id: `fact${fact.id}`,
+        onclick: (event) => {
+          deleteFact(event.target.parentElement.id);
+        },
+      },
       h("span", { "aria-hidden": true }, "☠")
     );
-    factContainer.append(h("article", {}, name, factText, button_edit, button_delete));
+    factContainer.append(
+      h(
+        "article",
+        {},
+        name,
+        factText,
+        h("span", { class: "article__buttons" }, button_edit, button_delete)
+      )
+    );
   });
   main.append(factContainer);
 };
