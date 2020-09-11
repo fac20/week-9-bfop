@@ -22,6 +22,7 @@ button {
   color: inherit;
   display: block;
   margin: 0.5rem;
+  cursor: pointer;
 }
 
 button {
@@ -79,4 +80,28 @@ article {
 img {
   height: 60vw;
   max-height: 300px;
+}
+
+
+
+@keyframes spin {
+  from{
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.book-image {
+  transform: rotateY( 0deg );
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.book-image:hover {
+  transform: rotateY( 180deg );
+  transition: transform 1s;
+  transform-style: preserve-3d;
 }
