@@ -23,17 +23,18 @@ function signUpForm() {
     h("span", { "aria-hidden": "true" }, "*")
   );
   // input - cohort
-  const cohortInputEl = h("input", { id: "sign-up-form__cohort", placeholder: "Cohort" });
+  const cohortInputEl = h("input", { id: "sign-up-form__cohort", placeholder: "Cohort", type: "number", min: "1" });
   // label - password
   const passwordLabelEl = h(
     "label",
-    { for: "sign-up-form__password" },
+    { for: "sign-up-form__password"},
     "Password:",
     h("span", { "aria-hidden": "true" }, "*")
   );
   // input - password
   const passwordInputEl = h("input", {
     id: "sign-up-form__password",
+    type: "password",
     required: "required",
     placeholder: "Password",
   });

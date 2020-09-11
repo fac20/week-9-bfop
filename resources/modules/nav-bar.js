@@ -7,7 +7,7 @@ const navBar = () => {
   const searchButton = h(
     "button",
     {
-      onclick: () => {
+      onclick: (event) => {
         search(event.target.previousSibling.value);
       },
     },
@@ -16,7 +16,7 @@ const navBar = () => {
 
   const randomButton = h("button", { onclick: () => randomFact() }, "random gossip");
   const allFactsButton = h("button", { onclick: () => allFacts() }, "all the gossip");
-  const searchInput = h("input", { placeholder: "which bitch?" }, searchButton);
+  const searchInput = h("input", { placeholder: "which bitch?", type: "search" }, searchButton);
   const logoutButton = h("button", { onclick: () => logout() }, "logout");
   const addFactButton = h(
     "button",
@@ -57,7 +57,7 @@ const randomFact = () => {
   // Populate page with fact
 };
 
-const allFacts = () => {
+export const allFacts = () => {
   fetchHelper("facts/", {}).then((facts) => {
     drawFacts(facts);
   });

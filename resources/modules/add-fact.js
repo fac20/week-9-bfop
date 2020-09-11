@@ -20,7 +20,7 @@ const addFactForm = () => {
   const form = h(
     "form",
     {
-      onsubmit: () => {
+      onsubmit: (event) => {
         event.preventDefault();
         const token = checkToken();
         const text_content = event.target.elements.new_fact.value;
@@ -37,8 +37,8 @@ const addFactForm = () => {
     newFact,
     submitButton
   );
-
-  main.append(img, form);
+    const egg = h("marquee",{}, "She doesn't even go here!")
+  main.append(img, form,egg);
   return main;
 };
 
